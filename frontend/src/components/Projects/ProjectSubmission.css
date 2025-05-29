@@ -1,0 +1,766 @@
+.project-submission-container {
+  width: 100%;
+}
+
+.project-actions {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit-project-btn {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.submit-project-btn:hover {
+  background-color: #45a049;
+}
+
+.projects-table-container {
+  width: 100%;
+  overflow-x: auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.projects-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.projects-table th,
+.projects-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.projects-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.projects-table tr:hover {
+  background-color: #f5f5f5;
+  cursor: pointer;
+}
+
+.selected-project {
+  background-color: #e8f4fc !important;
+  border-left: 4px solid #2196f3;
+}
+
+.project-description {
+  margin: 5px 0 0;
+  font-size: 0.9em;
+  color: #666;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.status-submitted {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.status-validation {
+  background-color: #fff8e1;
+  color: #f57f17;
+}
+
+.status-completed {
+  background-color: #e3f2fd;
+  color: #1565c0;
+}
+
+.loading-message,
+.error-message,
+.no-projects-message {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+}
+
+.error-message {
+  color: #d32f2f;
+}
+
+/* Project submission form modal */
+.project-form-modal {
+  width: 500px;
+  max-width: 90%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel-btn {
+  background-color: #f5f5f5;
+  color: #333;
+  border: 1px solid #ddd;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #1976d2;
+}
+
+/* Progress tracker */
+.project-progress-tracker {
+  margin: 30px 0;
+}
+
+.progress-steps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #757575;
+}
+
+.progress-step.active .step-circle {
+  background-color: #4caf50;
+  color: white;
+}
+
+.step-label {
+  font-size: 0.9em;
+  color: #757575;
+  text-align: center;
+}
+
+.progress-step.active .step-label {
+  color: #4caf50;
+  font-weight: 500;
+}
+
+.progress-line {
+  flex-grow: 1;
+  height: 3px;
+  background-color: #e0e0e0;
+  margin: 0 10px;
+  position: relative;
+  top: -20px;
+  z-index: 0;
+}
+
+.progress-steps .progress-step:nth-child(1).active ~ .progress-line:nth-child(2),
+.progress-steps .progress-step:nth-child(3).active ~ .progress-line:nth-child(4) {
+  background-color: #4caf50;
+}
+
+.project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.project-title {
+  font-weight: 600;
+  color: #333;
+}
+
+.project-category,
+.project-date {
+  font-size: 14px;
+  color: #757575;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.submitted {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-badge.validation {
+  background-color: #fff8e1;
+  color: #f57f17;
+}
+
+.status-badge.completed {
+  background-color: #e8f5e9;
+  color: #2e7d32;
+}
+
+.loading-cell,
+.error-cell,
+.no-data {
+  text-align: center;
+  padding: 20px;
+  color: #757575;
+}
+
+.error-cell {
+  color: #d32f2f;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px 0;
+}
+
+.pagination-button {
+  padding: 8px 16px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #e0e0e0;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-info {
+  font-size: 14px;
+  color: #757575;
+}
+
+/* Add these new styles to your existing CSS file */
+
+.file-help {
+  font-size: 0.8em;
+  color: #757575;
+  margin-top: 5px;
+}
+
+.upload-progress {
+  margin: 15px 0;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  display: block;
+  font-size: 0.8em;
+  color: #757575;
+  margin-top: 5px;
+  text-align: right;
+}
+
+.file-button {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+.file-button:hover {
+  background-color: #1976d2;
+}
+
+.no-file {
+  color: #9e9e9e;
+  font-size: 0.8em;
+  font-style: italic;
+}
+
+.project-file {
+  margin-top: 15px;
+  padding: 10px 15px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.download-btn {
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 10px;
+  font-size: 0.8em;
+}
+
+.download-btn:hover {
+  background-color: #1976d2;
+}
+
+/* Modal improvements */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 0;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.close-btn:hover {
+  color: #333;
+}
+
+.project-form-modal form {
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+  border-color: #4285f4;
+  outline: none;
+}
+
+.file-input-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.file-input {
+  position: absolute;
+  left: -9999px;
+}
+
+.file-input-label {
+  display: inline-block;
+  padding: 10px 16px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.file-input-label:hover {
+  background-color: #e9e9e9;
+}
+
+.file-help {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #666;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cancel-btn {
+  padding: 10px 16px;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.submit-btn {
+  padding: 10px 16px;
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.submit-btn:hover {
+  background-color: #3367d6;
+}
+
+.upload-progress {
+  margin-top: 16px;
+}
+
+.progress-bar {
+  height: 8px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #4285f4;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  margin-top: 4px;
+  color: #666;
+}
+
+.file-viewer-modal {
+  width: 90%; /* Increase from whatever it was before */
+  height: 85vh; /* Make it take up most of the viewport height */
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.file-viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+.file-viewer-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.file-viewer-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #555;
+}
+
+.file-viewer-content {
+  flex: 1;
+  overflow: auto;
+  padding: 0;
+}
+
+.file-viewer-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.file-viewer-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 20px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+}
+
+.file-download-button {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.file-download-button:hover {
+  background-color: #3367d6;
+}
+
+/* Update status badge colors */
+.status-badge.status-submitted {
+  background-color: #f0ad4e;
+  color: #fff;
+}
+
+.status-badge.status-revised {
+  background-color: #5bc0de;
+  color: #fff;
+}
+
+.status-badge.status-approved {
+  background-color: #5cb85c;
+  color: #fff;
+}
+
+.status-badge.status-denied {
+  background-color: #d9534f;
+  color: #fff;
+}
+
+/* Style for remarks section */
+.project-remarks {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  border-left: 4px solid #5bc0de;
+}
+
+.project-remarks h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+/* Add these styles to your CSS file to help debug visibility issues */
+.projects-table tr {
+  border: 1px solid #ddd;
+}
+
+.projects-table td {
+  padding: 8px;
+  border: 1px solid #eee;
+}
+
+/* Make sure error messages are clearly visible */
+.error-message {
+  color: #d32f2f;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #ffebee;
+}
+
+/* Make sure the status badges have good contrast */
+.status-badge {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.status-submitted {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+}
+
+.status-revised {
+  background-color: #fff8e1;
+  color: #ff6f00;
+}
+
+.status-approved {
+  background-color: #e8f5e9;
+  color: #1b5e20;
+}
+
+.status-denied {
+  background-color: #ffebee;
+  color: #b71c1c;
+}
+
+/* Styles for the remarks button */
+.view-remarks-btn {
+  background-color: #4285f4;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.view-remarks-btn:hover {
+  background-color: #3367d6;
+}
+
+.no-remarks {
+  color: #888;
+  font-style: italic;
+}
+
+/* Styles for the remarks modal */
+.remarks-modal {
+  width: 600px;
+  max-width: 90%;
+}
+
+/* Add these styles to your ProjectSubmission.css file */
+.reviewer-info {
+  margin-top: 10px;
+  font-style: italic;
+  color: #666;
+  font-size: 0.9em;
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+}
+
+.reviewer-name {
+  font-size: 0.85em;
+  color: #555;
+  margin-top: 5px;
+  font-style: italic;
+}
+
+.reviewer-info {
+  margin-top: 10px;
+  font-style: italic;
+  color: #555;
+  font-size: 0.9em;
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+}
+
+.remarks-content {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
